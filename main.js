@@ -1,110 +1,145 @@
-    "use strict";
+"use strict";
 
-    //Variables for the page.
-    var userName = prompt('Welcome to my site, what\'s your name?');
+//Global Variables
+var userName;
+var videoGames;
+var roleplay;
+var children;
+var cuteness;
+var college;
+var correctAnswers = 0;
+//Username fillout insurance
+var getName = function(){
+  var userName;
+  do {
+    userName = prompt("Welcome to my site, what's your name?");
+  } while (!userName);
+  alert("Welcome to my about me " + userName + ".");
+  console.log("Current user is " + userName);
+  return userName;
+};
+//Video game question
+var videoGamesQuestion = function(){
+do {
+  videoGames = prompt("Does Anthony like to play video games? Please use simple yes or no answers.");
+} while (videoGames !== "yes" && videoGames !== "no" && videoGames !== "y" && videoGames !== "n");
 
-    var videoGames;
-    var gamesUpper = videoGames.toUpperCase();
+if (videoGames === "yes" || videoGames === "y") {
+  alert("Nice job, I like to play video games.");
+  correctAnswers++;
+} else if (videoGames === "no" || videoGames === "n") {
+  alert("No way, I like to play video games, who wouldn't.");
+} else {
+  alert("Did you know yes and no are the ways to answer?");
+}
+console.log(
+  userName + " answered " + videoGames + " they have answered " + correctAnswers + " Correctly.");
+};
+//Roleplay question
+var roleplayQuestion = function(){
+do {
+  roleplay = prompt("Do I have a lot of interest in role playing games?");
+} while (
+  roleplay !== "yes" && roleplay !== "no" && roleplay !== "y" && roleplay !== "n");
 
-    var roleplay;
-    var roleplayUpper = roleplay.toUpperCase();
+if (roleplay === "yes" || roleplay === "y") {
+  alert("Correct! I do have a lot of interest in RPGs.");
+  correctAnswers++;
+} else if (roleplay === "no" || roleplay === "n") {
+  alert("That's wrong. I have a ton of interest in RPGs. They are one of my favorite games.");
+} else {
+  alert("Did you know yes and no are the ways to answer?");
+}
+console.log(userName + " answered "+ roleplay +" they have answered "+ correctAnswers +" Correctly.");
+};
+//Kid Question
+var childrenQuestion = function(){
+do {
+  children = prompt("Do I have any kids?");
+} while (children !== "yes" && children !== "no" && children !== "y" && children !== "n");
 
-    var children;
-    var childrenUpper = children.toUpperCase();
+if (children === "yes" || children === "y") {
+  alert("I do! A single kid.");
+  correctAnswers++;
+} else if (children === "no" || children === "n") {
+  alert("Sorry. I do have a kid.");
+} else {
+  alert("Did you know yes and no are the ways to answer?");
+}
+console.log(userName +" answered " + children +" they have answered " + correctAnswers +" Correctly.");
+};
+//Cuteness Question
+var cutenessQuestion = function(){
+do {
+  cuteness = prompt("Is my son cute?");
+} while ( cuteness !== "yes" && cuteness !== "no" && cuteness !== "y" && cuteness !== "n");
 
-    var cuteness;
-    var cuteUpper = cuteness.toUpperCase();
+if (cuteness === "yes" || cuteness === "y") {
+  alert("He is extremely cute.");
+  correctAnswers++;
+} else if (cuteness === "no" || cuteness === "n") {
+  alert("How could you say no!?");
+} else {
+  alert("Did you know yes and no are the ways to answer?");
+};
+console.log( userName + " answered " + cuteness +" they have answered " + correctAnswers +" Correctly.");
+};
+//College Question
+var collegeQuestion = function(){
+do {
+  college = prompt("Do I have any college degrees?");
+} while ( college !== "yes" && college !== "no" && college !== "y" && college !== "n");
 
-    var stateNumber = 3;
-    var guessedCounter = 4;
-    var guessedNumber;
+if (college === "yes" || college === "y") {
+  alert("Nope. I have never attended a year of college.");
+} else if (college === "no" || college === "n") {
+  alert("Correct! I only have a high school diploma and GED.");
+  correctAnswers++;
+} else {
+  alert("Did you know yes and no are the ways to answer?");
+}
+console.log( userName + " answered " + college +" they have answered " + correctAnswers +" Correctly.");
+};
+//State Number Question
+var stateQuestion = function(){
+var stateNumber = 3;
+var guessedCounter = 4;
+var guessedNumber;
+do{
+    guessedNumber = parseInt( prompt('Can you guess how many states I have lived in?'));
+    if(guessedNumber !== stateNumber){
+      guessedCounter--;
+    };
+    console.log(guessedNumber+ ' was guessed. ' + guessedCounter + 'tries remaining.');
+} while (guessedNumber !== stateNumber && guessedCounter>0);
 
-    var states;
-    var statesUpper = states.toUpperCase();
-
-    var correctAnswers;
-
-    //Username fillout insurance
-    while(userName.length == 0){
-        userName = prompt('Please give me a name.');
-    }
-    alert('Welcome to my about me ' + userName + '.')
-    console.log('Current user is ' + userName)
-
-    //Video game question
-    do{
-        gamesUpper = prompt('Does Anthony like to play video games? Please use simple yes or no answers.');
-    } while(gamesUpper !== 'yes' && gamesUpper !== 'no' && gamesUpper !== 'y' && gamesUpper !== 'n');
-
-    if(gamesUpper === 'yes' || gamesUpper === 'y'){
-        alert('Nice job, I like to play video games.');
-      correctAnswers++;  
-    } else if(gamesUpper === 'no' || gamesUpper === 'n'){
-        alert('No way, I like to play video games, who wouldn\'t.');
+if(guessedCounter === 0){
+    alert('Sorry you didn\'t get the right number, it was ' + stateNumber);
+} else{
+    alert('You got it!');
+    correctAnswers++;
+}
+};
+// //Home State Question
+var homeStateQuestion = function(){
+  var states = [ "california", "oregon", "washington"];
+  var stateGuess = prompt("What is a state I have lived in?");
+  console.log("The user has guessed " + stateGuess)
+  var correct = states.includes(stateGuess.toLowerCase());
+    if(correct){
+      alert("Corect! I have lived in " + stateGuess + ".");
+      correctAnswers++;
     } else {
-        alert('Did you know yes and no are the ways to answer?');
-    }
-    console.log(userName + ' answered ' + gamesUpper)
-
-    //Roleplay question
-    do{
-        roleplayUpper = prompt('Do I have a lot of interest in role playing games?');
-    } while(roleplayUpper !== 'yes' && roleplayUpper !== 'no' && roleplayUpper !== 'y' && roleplayUpper !== 'n');
-
-    if(roleplayUpper === 'yes' || roleplayUpper === 'y'){
-        alert('Correct! I do have a lot of interest in RPGs.');
-        correctAnswers++;
-    } else if(roleplayUpper === 'no' || roleplayUpper === 'n'){
-        alert('That\'s wrong. I have a ton of interest in RPGs. They are one of my favorite games.');
-    } else{
-        alert('Did you know yes and no are the ways to answer?');
-    }
-    console.log(userName + ' answered ' + roleplayUpper)
-
-    //Kid Question
-    do{
-        childrenUpper = prompt('Do I have any kids?');
-    } while(childrenUpper !== 'yes' && childrenUpper !== 'no' && childrenUpper !== 'y' && childrenUpper !== 'n');
-    
-    if(childrenUpper === 'yes' || childrenUpper === 'y'){
-        alert('I do! A single kid.');
-        correctAnswers++;
-    } else if(childrenUpper === 'no' || childrenUpper === 'n'){
-        alert('Sorry. I do have a kid.')
-    } else{
-        alert('Did you know yes and no are the ways to answer?');
-    }
-    console.log(userName + ' answered ' + childrenUpper)
-
-    //Cuteness Question
-    do{
-        cuteUpper = prompt('Is my son cute?');
-    } while(cuteUpper !== 'yes' && cuteUpper !== 'no' && cuteUpper !== 'y' && cuteUpper !== 'n');
-
-    if(cuteUpper === 'yes' || cuteUpper === 'y'){
-        alert('He is extremely cute.');
-        correctAnswers++;
-    } else if(cuteUpper === 'no' || cuteUpper === 'n'){
-        alert('How could you say no!?');
-    } else{
-        alert('Did you know yes and no are the ways to answer?');
-    }
-    console.log(userName + ' answered ' + cuteUpper)
-
-    //State Number Question
-    do{
-        guessedNumber = parseInt( prompt('Can you guess how many states I have lived in?'));
-        guessedNumber--;
-    } while (guessedNumber !== stateNumber)
-
-    if(guessedCounter === 0){
-        alert('Sorry you didn\'t get the right number, it was ' + stateNumber);
-    } else{
-        alert('You got it!');
-        correctAnswers++;
-    }
-
-    //Home State Question
-    // for (var i = 0; i < .length; i++){
-    //     if( [i] === )
-    // }
+      alert("Sorry I have not lived in " + stateGuess + ".");
+    } 
+};   
+// ========================================================================================================================================================================
+// function calls
+userName = getName();
+videoGamesQuestion();
+roleplayQuestion();
+childrenQuestion();
+cutenessQuestion();
+collegeQuestion();
+stateQuestion();
+homeStateQuestion();
