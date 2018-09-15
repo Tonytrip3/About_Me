@@ -110,11 +110,11 @@ do{
     if(guessedNumber !== stateNumber){
       guessedCounter--;
     };
-    console.log(guessedNumber+ ' was guessed. ' + guessedCounter + 'tries remaining.');
+    console.log(guessedNumber + ' was guessed. ' + guessedCounter + ' tries remaining.');
 } while (guessedNumber !== stateNumber && guessedCounter>0);
 
 if(guessedCounter === 0){
-    alert('Sorry you didn\'t get the right number, it was ' + stateNumber);
+    alert('Sorry you didn\'t get the right number, it was ' + stateNumber + '.');
 } else{
     alert('You got it!');
     correctAnswers++;
